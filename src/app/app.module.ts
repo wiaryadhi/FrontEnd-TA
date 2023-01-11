@@ -3,10 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UserPageComponent } from './user-page/user-page.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UserPageComponent
   ],
   imports: [
     BrowserModule,
