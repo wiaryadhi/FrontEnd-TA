@@ -10,7 +10,6 @@ import { SidebarComponent } from './sidebar/sidebar.component';
   declarations: [
     AppComponent,
     SidebarComponent,
-    AppComponent,
     UserPageComponent
   ],
   imports: [
