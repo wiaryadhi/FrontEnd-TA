@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReportPageComponent } from './report-page/report-page.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import {FormsModule} from "@angular/forms";
+import {NgxPrintModule} from "ngx-print";
 
 @NgModule({
   declarations: [
@@ -12,10 +14,12 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     ReportPageComponent,
     SidebarComponent
   ],
-  imports: [
-    BrowserModule,
-    NgbModule
-  ],
+    imports: [
+        BrowserModule,
+        NgbModule,
+        FormsModule,
+      NgxPrintModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
