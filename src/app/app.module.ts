@@ -8,21 +8,20 @@ import { ReportPageComponent } from './report-page/report-page.component';
 import {FormsModule} from "@angular/forms";
 import {NgxPrintModule} from "ngx-print";
 import {HttpClientModule} from "@angular/common/http";
+import {RouterOutlet} from "@angular/router";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
-    AppComponent,
     ReportPageComponent
   ],
-    imports: [
-        BrowserModule,
-        NgbModule,
-        FormsModule,
-      NgxPrintModule,
-      HttpClientModule
-    ],
+  imports: [
+    BrowserModule,
+    NgbModule,
+    FormsModule,
+    RouterOutlet
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
