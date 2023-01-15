@@ -4,11 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginPageComponent } from './login-page/login-page.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ReportPageComponent } from './report-page/report-page.component';
 import {FormsModule} from "@angular/forms";
 import {NgxPrintModule} from "ngx-print";
 import {HttpClientModule} from "@angular/common/http";
 import {RouterOutlet} from "@angular/router";
+import {HttpClientModule} from "@angular/common/http";
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -19,8 +22,11 @@ import {RouterOutlet} from "@angular/router";
   imports: [
     BrowserModule,
     NgbModule,
+    RouterOutlet,
     FormsModule,
-    RouterOutlet
+    ReactiveFormsModule,
+    HttpClientModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
