@@ -19,6 +19,9 @@ export class ReportPageComponent implements OnInit {
 
   report: IReport = {} as IReport;
 
+  colGroup = ''
+  tgl = ''
+
   constructor(
     private reportService: ReportService
   ) {   }
@@ -32,10 +35,15 @@ export class ReportPageComponent implements OnInit {
       (response: IReportWrapper) => {
         let tempData = response.data;
         this.reports = tempData
-        // const unique = [...new Map(tempData.map(item => [item['coveran'], item])).values()]
         this.reportFilter = [...new Map(tempData.map(item => [item['coveran'], item])).values()]
       }
     );
+  }
+
+  onFilter(cg: string, dt: string){
+    this.reportList = this.reportList.filter( item => item.collectorgroup === cg && item.tanggal == dt
+    )
+    console.log(this.reportList)
   }
 
   currentDate = new Date()

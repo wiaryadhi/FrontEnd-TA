@@ -12,11 +12,9 @@
             <label class="headr">Collector Grup</label>
             </div>
             <div class="col-sm-2">
-            <select class="form-control headr">
+            <select class="form-control header" [(ngModel)]="colGroup"  >
               <option label="--select something --"></option>
               <option *ngFor="let item of reportFilter">{{item.coveran}}</option>
-<!--              <option value="mercedes">Bandung</option>-->
-<!--              <option value="audi">Bogor</option>-->
             </select>
             </div>
           </div>
@@ -28,11 +26,11 @@
           <label>Tanggal Aging</label>
           </div>
           <div class="col-sm-2" >
-            <input type="date" class="form-control"/>
+            <input type="date" class="form-control" [(ngModel)]="tgl"/>
 
           </div>
           <div class="col-sm-2" >
-            <button class="btn btn-outline-secondary">
+            <button class="btn btn-outline-secondary" (click)="onFilter(colGroup, tgl)">
               Search
             </button>
           </div>
