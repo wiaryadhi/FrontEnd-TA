@@ -6,6 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReportPageComponent } from './report-page/report-page.component';
 import {FormsModule} from "@angular/forms";
 import {NgxPrintModule} from "ngx-print";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {NgxPrintModule} from "ngx-print";
         BrowserModule,
         NgbModule,
         FormsModule,
-      NgxPrintModule
+      NgxPrintModule,
+      HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent]

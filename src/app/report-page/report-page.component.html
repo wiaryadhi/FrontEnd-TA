@@ -14,9 +14,9 @@
             <div class="col-sm-2">
             <select class="form-control headr">
               <option label="--select something --"></option>
-              <option value="saab">1</option>
-              <option value="mercedes">2</option>
-              <option value="audi">3</option>
+              <option *ngFor="let item of reportFilter">{{item.coveran}}</option>
+<!--              <option value="mercedes">Bandung</option>-->
+<!--              <option value="audi">Bogor</option>-->
             </select>
             </div>
           </div>
@@ -28,7 +28,8 @@
           <label>Tanggal Aging</label>
           </div>
           <div class="col-sm-2" >
-            <input type="date" class="form-control" />
+            <input type="date" class="form-control"/>
+
           </div>
           <div class="col-sm-2" >
             <button class="btn btn-outline-secondary">
@@ -48,21 +49,19 @@
               <th>Postal Code</th>
               <th>Collector Grup</th>
               <th>Tanggal</th>
-              <th>Field</th>
               <th>Kelompok</th>
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let item of reportList">
-              <td>{{item.no}}</td>
+            <tr *ngFor="let item of reports">
+              <td>{{item.id}}</td>
               <td>{{item.name}}</td>
-              <td>{{item.address}}</td>
-              <td>{{item.account}}</td>
-              <td>{{item.postalcode}}</td>
-              <td>{{item.collectorgroup}}</td>
-              <td>{{item.tanggal}}</td>
-              <td>{{item.field}}</td>
-              <td>{{item.kelompok}}</td>
+              <td>{{item.accountNumber}}</td>
+              <td>{{item.homeAddress}}</td>
+              <td>{{item.postalCode}}</td>
+              <td>{{item.coveran}}</td>
+              <td>{{item.agingDate}}</td>
+              <td>{{item.priority}}</td>
             </tr>
             </tbody>
           </table>

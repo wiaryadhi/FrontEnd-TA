@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import * as XLSX from 'xlsx';
 import {formatDate} from "@angular/common";
 import jsPDF from "jspdf";
+import {IReport, IReportWrapper} from "../interfaces/i-report";
+import {ReportService} from "../services/report.service";
 
 @Component({
   selector: 'app-report-page',
@@ -9,7 +11,32 @@ import jsPDF from "jspdf";
   styleUrls: ['./report-page.component.css']
 })
 
-export class ReportPageComponent  {
+export class ReportPageComponent implements OnInit {
+
+  reports: Array<IReport> = [];
+
+  reportFilter: Array<IReport> = [];
+
+  report: IReport = {} as IReport;
+
+  constructor(
+    private reportService: ReportService
+  ) {   }
+
+  ngOnInit(): void {
+    this.onAll()
+  }
+
+  onAll(): void{
+    this.reportService.all().subscribe(
+      (response: IReportWrapper) => {
+        let tempData = response.data;
+        this.reports = tempData
+        // const unique = [...new Map(tempData.map(item => [item['coveran'], item])).values()]
+        this.reportFilter = [...new Map(tempData.map(item => [item['coveran'], item])).values()]
+      }
+    );
+  }
 
   currentDate = new Date()
   cdv = formatDate(this.currentDate, 'yyyy-MM-dd hh:mm:ss', 'en-US');
@@ -58,15 +85,6 @@ export class ReportPageComponent  {
   }
 
   public SavePDF(): void {
-    // let content=this.content.nativeElement;
-    //
-    // let doc = new jsPDF("p", "mm", "a4");
-    // let _elementHandlers =
-    //   {
-    //     '#editor':function(){
-    //       return true;
-    //     }
-    //   };
 
     window.print()
 
