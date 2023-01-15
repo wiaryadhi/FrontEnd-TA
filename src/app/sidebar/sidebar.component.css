@@ -1,5 +1,17 @@
 body {
   overflow-x: hidden;
+  font-family: 'Nunito', sans;
+}
+
+.list-group-item-action {
+  background-color: #f8f9fa;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.list-group-item-action:hover{
+  background-color: #F4AF59;
+  color: #FFFFFF;
+  transition: 0.5s;
 }
 
 #sidebar-wrapper {
@@ -17,6 +29,7 @@ body {
 }
 
 #sidebar-wrapper .list-group {
+
   width: 15rem;
 }
 
@@ -37,22 +50,22 @@ body {
     min-width: 0;
     width: 100%;
   }
-  .show
-  {
-    margin-left: 0!important;
+
+  .show {
+    margin-left: 0 !important;
   }
-  .hide
-  {
-    margin-left: -15rem!important;
+
+  .hide {
+    margin-left: -15rem !important;
   }
 }
+
 @media (max-width: 767px) {
-  .show
-  {
-    margin-left: -15rem!important;
+  .show {
+    margin-left: -15rem !important;
   }
-  .hide
-  {
-    margin-left: -0!important;
+
+  .hide {
+    margin-left: -0 !important;
   }
 }

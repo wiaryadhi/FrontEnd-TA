@@ -1,11 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="sidebar.component.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+</head>
+<body>
 <div class="d-flex" id="wrapper">
   <!-- Sidebar -->
   <div class="bg-light border-right" id="sidebar-wrapper"  [ngClass]="status ? 'hide' : 'show'">
     <div class="sidebar-heading">User Profile </div>
     <div class="list-group list-group-flush">
-      <a href="#" class="list-group-item list-group-item-action bg-light">User</a>
-      <a href="#" class="list-group-item list-group-item-action bg-light">Access Web</a>
-      <a href="#" class="list-group-item list-group-item-action bg-light">Access Mobile</a>
+      <a href="#" class="list-group-item list-group-item-action ">User</a>
+      <a href="#" class="list-group-item list-group-item-action">Access Web</a>
+      <a href="#" class="list-group-item list-group-item-action">Access Mobile</a>
     </div>
   </div>
   <!-- /#sidebar-wrapper -->
@@ -17,3 +28,4 @@
   <!-- /#page-content-wrapper -->
 </div>
 <!-- /#wrapper -->
+</body>
