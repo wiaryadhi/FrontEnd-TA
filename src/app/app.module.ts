@@ -5,6 +5,10 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginPageComponent } from './login-page/login-page.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {RouterOutlet} from "@angular/router";
+import {HttpClientModule} from "@angular/common/http";
+import {AppRoutingModule} from './app-routing.module';
+import {ReportPageComponent} from './report-page/report-page.component';
 import { ReportPageComponent } from './report-page/report-page.component';
 import {FormsModule} from "@angular/forms";
 import {NgxPrintModule} from "ngx-print";
@@ -16,8 +20,8 @@ import { AppRoutingModule } from './app-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
+    ReportPageComponent,
     LoginPageComponent,
-    ReportPageComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +30,8 @@ import { AppRoutingModule } from './app-routing.module';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    RouterOutlet,
+    ReactiveFormsModule,
     AppRoutingModule,
   ],
   providers: [],
