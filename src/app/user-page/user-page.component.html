@@ -86,18 +86,22 @@
             <div class="mb-3">
                 <label class="form-label">Type </label>
                 <input type="text" class="form-control"[(ngModel)]="user.type">
+                <small class="text-danger" *ngIf="notif.type">{{notif.type}}</small>
             </div>
             <div class="mb-3">
                 <label class="form-label">Title </label>
                 <input type="text" class="form-control"[(ngModel)]="user.title">
+                <small class="text-danger" *ngIf="notif.title">{{notif.title}}</small>
             </div>
             <div class="mb-3">
                 <label class="form-label">Coveran </label>
                 <input type="text" class="form-control" [(ngModel)]="user.coveran">
+                <small class="text-danger" *ngIf="notif.coveran">{{notif.coveran}}</small>
             </div>
             <div class="mb-3">
                 <label class="form-label">Phone Number</label>
                 <input type="text" class="form-control" [(ngModel)]="user.phoneNumber">
+                <small class="text-danger" *ngIf="notif.phoneNumber">{{notif.phoneNumber}}</small>
             </div>
             <div class="mb-3" *ngIf="!user.id">
                 <label class="form-label">Password </label>

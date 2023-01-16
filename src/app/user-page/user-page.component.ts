@@ -43,7 +43,31 @@ export class UserPageComponent implements OnInit {
 
   onCreate():void{
     this.resetNotif();
-    if(this.user.password&&this.user.uniqId&&this.user.collectName){
+    if(!this.user.uniqId){
+      this.notif.uniqId = "NIP harus di isi";
+    }
+
+    else if(!this.user.collectName){
+      this.notif.collectName = "Nama harus di isi";
+    }
+
+    else if(!this.user.type){
+      this.notif.type = "Type harus di isi";
+    }
+
+    else if(!this.user.title){
+      this.notif.title = "Title harus di isi";
+    }
+
+    else if(!this.user.coveran){
+      this.notif.title = "Coveran harus di isi";
+    }
+
+    else if(!this.user.phoneNumber){
+      this.notif.title = "Nomor Handphone harus di isi";
+    }
+
+    else if(this.user.password){
       if(this.user.password==this.reInput){
         this.userService.create(this.user)
         .subscribe(
@@ -57,10 +81,9 @@ export class UserPageComponent implements OnInit {
           
           this.notif.reInput = "Password harus sama";
       }
+      
     } else {
       this.notif.password = "Password harus di isi";
-      this.notif.uniqId = "NIP harus di isi";
-      this.notif.collectName = "Nama harus di isi";
     }
  
   }

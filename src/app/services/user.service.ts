@@ -8,7 +8,7 @@ import { IUsers, IUsersWrapper } from '../interfaces/i-users';
   providedIn: 'root'
 })
 export class UserService {
-  endpoint:string="api/user"
+  endpoint:string="user"
 
   constructor(private baseService:BaseService, private httpClient:HttpClient) { }
 
