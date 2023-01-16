@@ -36,7 +36,7 @@ export class ReportPageComponent implements OnInit {
 
   closed(){
     this.closeBtn = false
-    location.reload();
+    window.location.reload()
   }
 
   onAll(): void{

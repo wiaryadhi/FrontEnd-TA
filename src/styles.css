@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+@media print {
+
+  button {
+    display: none;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 12px;
+  }
+
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even){background-color: #f2f2f2}
+
+  th {
+    background-color: #04AA6D;
+    color: white;
+  }
+
+  .d-flex {
+    display: none;
+  }
+
+  #sidebar-wrapper {
+    display: none;
+  }
+
+  .card-title {
+    display: none;
+  }
+
+  .headr{
+    display: none;
+  }
+
+}
