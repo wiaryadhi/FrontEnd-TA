@@ -18,7 +18,6 @@
             </select>
             </div>
           </div>
-
         </div>
 
         <div class="row headr">
@@ -37,6 +36,7 @@
         </div>
 
         <div class="card-content mt-4" *ngIf="!dataNull">
+          <button type="button" class="btn-close float-end" aria-label="Close" *ngIf="closeBtn == true" (click)="closed()"></button>
           <table class="table table-striped" id="reportTable">
             <thead>
             <tr>
@@ -70,6 +70,8 @@
         </div>
 
         <div *ngIf="dataNull">
+          <button type="button" class="btn-close float-end" aria-label="Close" *ngIf="closeBtn == true" (click)="closed()"></button>
+
           <h1>
             Data Tidak Ada
           </h1>
