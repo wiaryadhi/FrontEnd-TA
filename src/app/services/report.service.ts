@@ -8,7 +8,7 @@ import {IReport, IReportWrapper} from "../interfaces/i-report";
   providedIn: 'root'
 })
 export class ReportService {
-  endpoint: string = "/account/for/report/all"
+  endpoint: string = "account/for/report/all"
 
   constructor(
     private baseService: BaseService,

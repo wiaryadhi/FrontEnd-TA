@@ -4,7 +4,6 @@ import {formatDate} from "@angular/common";
 import jsPDF from "jspdf";
 import {IReport, IReportWrapper} from "../interfaces/i-report";
 import {ReportService} from "../services/report.service";
-import * as moment from "moment";
 
 @Component({
   selector: 'app-report-page',
