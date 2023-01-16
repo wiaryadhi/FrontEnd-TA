@@ -8,18 +8,14 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterOutlet} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
 import {AppRoutingModule} from './app-routing.module';
-import {SidebarComponent} from './sidebar/sidebar.component';
 import {ReportPageComponent} from './report-page/report-page.component';
-import {FormsModule} from "@angular/forms";
 import {NgxPrintModule} from "ngx-print";
-import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
     AppComponent,
     ReportPageComponent,
-    SidebarComponent,
-    LoginPageComponent
+    LoginPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,12 +23,8 @@ import {HttpClientModule} from "@angular/common/http";
     FormsModule,
     NgxPrintModule,
     HttpClientModule,
-
-
     RouterOutlet,
-
     ReactiveFormsModule,
-
     AppRoutingModule,
   ],
   providers: [],
