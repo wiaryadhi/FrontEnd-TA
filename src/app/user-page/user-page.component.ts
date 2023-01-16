@@ -72,9 +72,14 @@ export class UserPageComponent implements OnInit {
           (response:IUsers)=>{
             this.user={} as IUsers;
             this.onAll()
-          }
+            alert("Data berhasil ditambahkan")
+          },
+          ((error: any) => {
+            console.log(error);
+            alert(error.message)
+          })
           )
-          alert("Data berhasil ditambahkan")
+          
         } else {
           
           this.notif.reInput = "Password harus sama";
