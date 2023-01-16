@@ -10,8 +10,6 @@ import { UserService } from '../services/user.service';
 export class UserPageComponent implements OnInit {
   users:Array<IUsers>=[];
   
-  // passwordInput:any= document.querySelector("#password");
-  // reInput:any= document.querySelector("#retype-password");
   reInput: string = "";
   notif: any = {
     uniqId:null,
@@ -97,7 +95,31 @@ export class UserPageComponent implements OnInit {
   }
 
   onUpdate():void{
-    this.userService.update(this.user)
+
+    this.resetNotif();
+    if(!this.user.uniqId){
+      this.notif.uniqId = "NIP harus di isi";
+
+    }
+
+    else if(!this.user.collectName){
+      this.notif.collectName = "Nama harus di isi";
+    }
+
+    else if(!this.user.type){
+      this.notif.type = "Type harus di isi";
+    }
+
+    else if(!this.user.title){
+      this.notif.title = "Title harus di isi";
+    }
+
+    else if(!this.user.coveran){
+      this.notif.title = "Coveran harus di isi";
+    }
+
+    else if(this.user.phoneNumber){
+      this.userService.update(this.user)
     .subscribe(
       (response:IUsers)=>{
         this.user={} as IUsers;
@@ -105,6 +127,11 @@ export class UserPageComponent implements OnInit {
       }
     )
     alert("Data berhasil Diubah")
+      
+    }else{
+      this.notif.title = "Nomor Handphone harus di isi";
+    }
+    
   }
 
   onCmsEnable(id:number):void{
