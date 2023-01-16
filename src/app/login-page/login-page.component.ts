@@ -17,7 +17,7 @@ import {ILoginWrapper} from "../interfaces/i-user";
 export class LoginPageComponent implements AfterViewInit, OnInit {
 
   lastURL: string | null = null;
-  defaultURL: string = "/side";
+  defaultURL: string = "/dashboard";
   requiredForm: FormGroup;
 
   messageError: string = "";

@@ -9,7 +9,7 @@ import {ReportPageComponent} from "./report-page/report-page.component";
 
 const routes: Routes = [
   {path: 'login', component: LoginPageComponent},
-  {path: 'side', component: SidebarComponent, canActivate: [AuthGuardService]},
+  {path: 'dashboard', component: SidebarComponent, canActivate: [AuthGuardService]},
   {path: 'report', component: ReportPageComponent, canActivate: [AuthGuardService]},
 
 

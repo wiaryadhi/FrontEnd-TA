@@ -71,10 +71,26 @@
 
         <div *ngIf="dataNull">
           <button type="button" class="btn-close float-end" aria-label="Close" *ngIf="closeBtn == true" (click)="closed()"></button>
+          <table class="table table-striped" id="reportTable">
+            <thead>
+            <tr>
+              <th>No</th>
+              <th>Nama</th>
+              <th>Kontrak</th>
+              <th>Home Address</th>
+              <th>Postal Code</th>
+              <th>Collector Grup</th>
+              <th>Tanggal</th>
+              <th>Kelompok</th>
+            </tr>
+            </thead>
+            <tbody >
+            <tr>
+              <td colspan="8" style="text-align: center"> Data Tidak Tersedia</td>
+            </tr>
+            </tbody>
+          </table>
 
-          <h1>
-            Data Tidak Ada
-          </h1>
         </div>
 
       </div>

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import * as XLSX from 'xlsx';
 import {formatDate} from "@angular/common";
-import jsPDF from "jspdf";
+// import jsPDF from "jspdf";
 import {IReport, IReportWrapper} from "../interfaces/i-report";
 import {ReportService} from "../services/report.service";
 

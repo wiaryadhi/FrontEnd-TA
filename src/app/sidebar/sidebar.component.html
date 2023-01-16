@@ -11,6 +11,7 @@
 <body>
 <div class="d-flex" id="wrapper">
   <!-- Sidebar -->
+  <div class="make-me-sticky">
   <div class="border-right" id="sidebar-wrapper" [ngClass]="status ? 'hide' : 'show'">
     <div class="sidebar-heading">User Profile</div>
     <div class="list-group list-group-flush sidebar-body">
@@ -26,6 +27,7 @@
       </svg> &nbsp;by ITDP 7
     </div>
   </div>
+  </div>
   <!-- /#sidebar-wrapper -->
 
   <!-- Page Content -->
@@ -37,7 +39,10 @@
 <!-- /#wrapper -->
 </body>
 
+
 <ng-template #usertemp>
-kosong
+  <div id="page-content-wrapper" >
+<app-user-page></app-user-page>
+  </div>
 </ng-template>
 
