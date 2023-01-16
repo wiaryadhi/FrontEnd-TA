@@ -20,6 +20,7 @@ export class ReportPageComponent implements OnInit {
   reportss: Array<IReport> = [];
 
   dataNull: boolean = false
+  closeBtn: boolean = false
 
   report: IReport = {} as IReport;
 
@@ -34,6 +35,11 @@ export class ReportPageComponent implements OnInit {
     this.onAll()
   }
 
+  closed(){
+    this.closeBtn = false
+    location.reload();
+  }
+
   onAll(): void{
     this.reportService.all().subscribe(
       (response: IReportWrapper) => {
@@ -46,6 +52,7 @@ export class ReportPageComponent implements OnInit {
   }
 
   onFilter(cg: string, dt: string) {
+    this.closeBtn = true
     this.reportService.getFilter(cg, dt).subscribe(
       (response: IReportWrapper) => {
         if (response.data.length > 0){
