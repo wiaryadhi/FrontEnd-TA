@@ -11,7 +11,7 @@ import {ILoginWrapper, IUser} from "../interfaces/i-user";
 })
 export class LoginService {
 
-  endpoint: string = "/api/user/login"
+  endpoint: string = "/api/v1/user/login"
 
   constructor(private baseService: BaseService,
               private httpClient: HttpClient,

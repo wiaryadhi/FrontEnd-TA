@@ -10,12 +10,14 @@ import {HttpClientModule} from "@angular/common/http";
 import {AppRoutingModule} from './app-routing.module';
 import {ReportPageComponent} from './report-page/report-page.component';
 import {NgxPrintModule} from "ngx-print";
+import {SidebarComponent} from "./sidebar/sidebar.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     ReportPageComponent,
     LoginPageComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

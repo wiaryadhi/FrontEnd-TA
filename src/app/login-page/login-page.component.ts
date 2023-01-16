@@ -60,7 +60,6 @@ export class LoginPageComponent implements AfterViewInit, OnInit {
   onLogin() {
     console.log(this.captchaCode === this.captchaInput)
     if (this.captchaCode === this.captchaInput) {
-      console.log(this.requiredForm.value)
       this.user = this.requiredForm.value
       this.loginService.login(this.user)
         .subscribe(
@@ -68,7 +67,7 @@ export class LoginPageComponent implements AfterViewInit, OnInit {
             this.storageService.save('UNIQID', response.data.uniqId);
             this.storageService.save('MSISDN', `${response.data.msisdn}`);
             if (this.lastURL) {
-              this.router.navigate([this.lastURL])
+              this.router.navigate(             [this.lastURL])
             } else {
               this.router.navigate([this.defaultURL])
 
@@ -76,7 +75,7 @@ export class LoginPageComponent implements AfterViewInit, OnInit {
 
           }, error => {
             console.log(error.message);
-            alert("Username atau Password salah")
+            alert("LOGIN GAGAL, USERNAME ATAU PASSWORD SALAH")
             this.messageError = error.message;
           }
         )
