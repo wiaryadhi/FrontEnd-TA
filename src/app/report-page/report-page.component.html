@@ -12,9 +12,9 @@
             <label class="headr">Collector Grup</label>
             </div>
             <div class="col-sm-2">
-            <select class="form-control header" [(ngModel)]="colGroup"  >
-              <option label="--select something --"></option>
-              <option *ngFor="let item of reportFilter">{{item.coveran}}</option>
+            <select class="form-control headr" [(ngModel)]="colGroup"  >
+              <option label="--select something --" value=""></option>
+              <option *ngFor="let item of reportFilter" value="{{item.coveran}}">{{item.coveran}}</option>
             </select>
             </div>
           </div>
@@ -36,7 +36,7 @@
           </div>
         </div>
 
-        <div class="card-content mt-4">
+        <div class="card-content mt-4" *ngIf="!dataNull">
           <table class="table table-striped" id="reportTable">
             <thead>
             <tr>
@@ -50,25 +50,31 @@
               <th>Kelompok</th>
             </tr>
             </thead>
-            <tbody>
-            <tr *ngFor="let item of reports">
-              <td>{{item.id}}</td>
+            <tbody >
+            <tr *ngFor="let item of reports; let i = index">
+              <td>{{i+1}}</td>
               <td>{{item.name}}</td>
               <td>{{item.accountNumber}}</td>
               <td>{{item.homeAddress}}</td>
               <td>{{item.postalCode}}</td>
               <td>{{item.coveran}}</td>
-              <td>{{item.agingDate}}</td>
+              <td>{{item.agingDate | date: 'dd/MM/YYYY'}}</td>
               <td>{{item.priority}}</td>
             </tr>
             </tbody>
           </table>
+          <div>
+            <button class="btn btn-outline-secondary float-end  m-lg-3" (click)="SavePDF()">Print</button>
+            <button class="btn btn-outline-secondary float-end  m-lg-3" (click)="exportexcel()">Export to Excel</button>
+          </div>
         </div>
 
-        <div>
-          <button class="btn btn-outline-secondary float-end  m-lg-3" (click)="SavePDF()">Print</button>
-          <button class="btn btn-outline-secondary float-end  m-lg-3" (click)="exportexcel()">Export to Excel</button>
+        <div *ngIf="dataNull">
+          <h1>
+            Data Tidak Ada
+          </h1>
         </div>
+
       </div>
     </div>
   </div>

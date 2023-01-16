@@ -21,4 +21,11 @@ export class ReportService {
 
     )
   }
+
+  getFilter(cover: string, tgl: string): Observable<IReportWrapper>{
+    return this.httpClient.get<IReportWrapper>(
+      `${this.baseService.baseURL}/account/for/report?coveran=${cover}&agingdate=${tgl}`
+
+    )
+  }
 }

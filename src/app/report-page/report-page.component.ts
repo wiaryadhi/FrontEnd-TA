@@ -4,6 +4,7 @@ import {formatDate} from "@angular/common";
 import jsPDF from "jspdf";
 import {IReport, IReportWrapper} from "../interfaces/i-report";
 import {ReportService} from "../services/report.service";
+import * as moment from "moment";
 
 @Component({
   selector: 'app-report-page',
@@ -16,6 +17,9 @@ export class ReportPageComponent implements OnInit {
   reports: Array<IReport> = [];
 
   reportFilter: Array<IReport> = [];
+  reportss: Array<IReport> = [];
+
+  dataNull: boolean = false
 
   report: IReport = {} as IReport;
 
@@ -35,47 +39,34 @@ export class ReportPageComponent implements OnInit {
       (response: IReportWrapper) => {
         let tempData = response.data;
         this.reports = tempData
+        this.reportss = tempData
         this.reportFilter = [...new Map(tempData.map(item => [item['coveran'], item])).values()]
       }
     );
   }
 
-  onFilter(cg: string, dt: string){
-    this.reportList = this.reportList.filter( item => item.collectorgroup === cg && item.tanggal == dt
-    )
-    console.log(this.reportList)
+  onFilter(cg: string, dt: string) {
+    this.reportService.getFilter(cg, dt).subscribe(
+      (response: IReportWrapper) => {
+        if (response.data.length > 0){
+          this.dataNull = false
+        }
+        else {
+          this.dataNull = true
+        }
+          this.tgl = ''
+          this.colGroup = ''
+        let tempData = response.data;
+        this.reports = tempData
+        this.reportss = tempData
+      }
+    );
   }
 
   currentDate = new Date()
   cdv = formatDate(this.currentDate, 'yyyy-MM-dd hh:mm:ss', 'en-US');
 
-  title = 'Report Aging';
   fileName= 'ReportAging_'+this.cdv+'.xlsx';
-  reportList = [
-
-    {
-      "no": 1,
-      "name": "Leanne Graham",
-      "account": "99042958498983",
-      "address": "jayapura",
-      "postalcode" : "12345",
-      "collectorgroup" : "group 1",
-      "tanggal" : "20/02/2022",
-      "field" : "djalfk",
-      "kelompok" : "satu"
-    },
-    {
-      "no": 2,
-      "name": "fdsfsf",
-      "account": "342545422134",
-      "address": "jakarta",
-      "postalcode" : "42323",
-      "collectorgroup" : "group 2",
-      "tanggal" : "20/12/2012",
-      "field" : "djalfk",
-      "kelompok" : "dua"
-    }
-  ]
 
   exportexcel(): void
   {
@@ -97,5 +88,6 @@ export class ReportPageComponent implements OnInit {
     window.print()
 
   }
+
 
 }
