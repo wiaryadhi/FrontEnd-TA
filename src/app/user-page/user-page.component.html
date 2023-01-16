@@ -21,10 +21,11 @@
                             <th>MSIDN</th>
                             <th>User Mobile</th>
                             <th>User CMS </th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let u of users" (click)="onAll()">
+                        <tr *ngFor="let u of users">
                             <td>{{u.uniqId}}</td>
                             <td>{{u.collectName}}</td>
                             <td>{{u.type}}</td>
@@ -34,19 +35,23 @@
                             <td>{{u.msisdn}}</td>
                             <td align="center">
                                 <div *ngIf="u.mobile == true">
-                                    <button class="btn btn-success">Enable</button>
+                                    <button class="btn btn-success btn-sm" (click)="onMobileDisable(u.id)">Enable</button>
                                 </div>
-                                <div *ngIf="u.mobile == false">
-                                    <button class="btn btn-danger">Disable</button>
+                                <div *ngIf="u.mobile == false" >
+                                    <button class="btn btn-danger btn-sm" (click)="onMobileEnable(u.id)">Disable</button>
                                 </div>
                             </td>
                             <td>
                                 <div *ngIf="u.cms == true">
-                                    <button class="btn btn-success">Enable</button>
+                                    <button class="btn btn-success btn-sm" (click)="onCmsDisable(u.id)">Enable</button>
                                 </div>
                                 <div *ngIf="u.cms == false">
-                                    <button class="btn btn-danger">Disable</button>
+                                    <button class="btn btn-danger btn-sm" (click)="onCmsEnable(u.id)">Disable</button>
                                 </div>
+                            </td>
+                            <td>
+                                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#tambahModal" (click)="setUser(u)"><i class="bi bi-pencil-square"></i></button> &nbsp;
+                                <button class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#hapusModal" (click)="setUser(u)"><i class="bi bi-trash3-fill"></i></button>
                             </td>
                         </tr>
                     </tbody>
@@ -58,7 +63,8 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="tambahModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+<div class="modal fade" id="tambahModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
@@ -67,45 +73,105 @@
         </div>
 
         <div class="modal-body">
-
             <div class="mb-3">
-                <label class="form-label">User ID  </label>
-                <input type="text" class="form-control">
+                <label class="form-label">NIP </label>
+                <input type="text" class="form-control" [(ngModel)]="user.uniqId">
+                <small class="text-danger" *ngIf="notif.uniqId">{{notif.uniqId}}</small>
             </div>
-
             <div class="mb-3">
                 <label class="form-label">Name </label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" [(ngModel)]="user.collectName">
+                <small class="text-danger" *ngIf="notif.collectName">{{notif.collectName}}</small>
             </div>
             <div class="mb-3">
                 <label class="form-label">Type </label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control"[(ngModel)]="user.type">
             </div>
             <div class="mb-3">
+                <label class="form-label">Title </label>
+                <input type="text" class="form-control"[(ngModel)]="user.title">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Coveran </label>
+                <input type="text" class="form-control" [(ngModel)]="user.coveran">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Phone Number</label>
+                <input type="text" class="form-control" [(ngModel)]="user.phoneNumber">
+            </div>
+            <div class="mb-3" *ngIf="!user.id">
                 <label class="form-label">Password </label>
-                <input type="password" class="form-control">
+                <input type="password" class="form-control" [(ngModel)]="user.password">
+                <small class="text-danger" *ngIf="notif.password">{{notif.password}}</small>
             </div>
-            <div class="mb-3">
+            <div class="mb-3" *ngIf="!user.id">
                 <label class="form-label">Re-type Password </label>
-                <input type="password" class="form-control">
+                <input type="password" class="form-control" [(ngModel)]="reInput">
+                <small class="text-danger" *ngIf="notif.reInput">{{notif.reInput}}</small>
             </div>
+            
             <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1" [(ngModel)]="user.mobile">
                 <label class="form-check-label" for="exampleCheck1">User Mobile</label>
               </div>
 
               <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck2">
+                <input type="checkbox" class="form-check-input" id="exampleCheck2"[(ngModel)]="user.cms">
                 <label class="form-check-label" for="exampleCheck2">User CMS</label>
               </div>
-            
+
+              <div *ngIf="user.mobile == true">
+                <div class="mb-3">
+                    <label class="form-label">MSIDN </label>
+                    <input type="text" class="form-control" [(ngModel)]="user.msisdn">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Remark</label>
+                    <input type="text" class="form-control" [(ngModel)]="user.remark">
+                </div>
+              </div>
         </div>
 
         <div class="modal-footer">
+            <!-- <input type="text" [(ngModel)]="user.id"> -->
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary"><i class="bi bi-save"></i> Add</button>
+          <div *ngIf="!user.id">
+            <button (click)="onCreate()" type="button" class="btn btn-primary"><i class="bi bi-save"></i> Add</button>
+          </div>
+          <div *ngIf="user.id">
+            <button (click)="onUpdate()" type="button" class="btn btn-warning">Update</button>
+          </div>
+          
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Modal Hapus-->
+<div class="modal fade" id="hapusModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Hapus Data</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Anda yakin ingin menghapus data ?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" (click)="onDelete(user.id)">Hapus</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
+
+  
+
+  
+  
+  
   

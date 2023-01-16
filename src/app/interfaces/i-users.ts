@@ -1,4 +1,5 @@
 export interface IUsers {
+    id:number,
     uniqId:string,
     collectName:string,
     type:string,
@@ -6,11 +7,13 @@ export interface IUsers {
     password:string,
     coveran:string,
     phoneNumber:string,
-    msisdn:string,
-    remark:string,
     active:boolean,
     mobile:boolean,
-    cms:boolean
+    cms:boolean,
+    //khusun user mobile
+    msisdn:string,
+    remark:string
+    
 }
 
 export interface IUsersWrapper{

@@ -6,6 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UserPageComponent } from './user-page/user-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { DataTablesModule } from 'angular-datatables';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     NgbModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
