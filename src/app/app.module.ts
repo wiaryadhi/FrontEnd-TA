@@ -12,6 +12,7 @@ import {ReportPageComponent} from './report-page/report-page.component';
 import { ReportPageComponent } from './report-page/report-page.component';
 import {FormsModule} from "@angular/forms";
 import {NgxPrintModule} from "ngx-print";
+import {SidebarComponent} from "./sidebar/sidebar.component";
 import {HttpClientModule} from "@angular/common/http";
 import {RouterOutlet} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
@@ -22,6 +23,7 @@ import { AppRoutingModule } from './app-routing.module';
     AppComponent,
     ReportPageComponent,
     LoginPageComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

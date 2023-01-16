@@ -4,6 +4,7 @@ import {RouterModule, Routes} from "@angular/router";
 import {LoginPageComponent} from "./login-page/login-page.component";
 
 import {AuthGuardService} from "./services/auth-guard.service";
+import {SidebarComponent} from "./sidebar/sidebar.component";
 
 const routes: Routes = [
   {path: 'login', component: LoginPageComponent},
