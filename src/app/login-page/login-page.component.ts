@@ -58,7 +58,6 @@ export class LoginPageComponent implements AfterViewInit, OnInit {
   }
 
   onLogin() {
-    console.log(this.captchaCode === this.captchaInput)
     if (this.captchaCode === this.captchaInput) {
       this.user = this.requiredForm.value
       this.loginService.login(this.user)
@@ -91,7 +90,6 @@ export class LoginPageComponent implements AfterViewInit, OnInit {
     this.context = element.getContext("2d");
     this.context!.fillStyle = "white";
     this.context!.font = "bold 48px Arial";
-    console.log(this.captchaCode);
     this.context!.fillText(this.captchaCode, 60, 80);
   }
 

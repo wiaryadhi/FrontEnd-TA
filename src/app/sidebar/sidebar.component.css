@@ -48,8 +48,10 @@ body {
 
 .list-group-item-action {
   background-color: #F5F2EA;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  padding-top: 20px;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  /*margin-bottom: 10px;*/
   border-bottom: none;
 }
 

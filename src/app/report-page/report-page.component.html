@@ -2,33 +2,33 @@
   <div class="row">
     <div class="">
       <div class="card-title">
-        <h2>Report Detail Aging Field Collector Yang Belum Dikunjungi</h2>
+        <h5>Report Detail Aging Field Collector Yang Belum Dikunjungi</h5>
       </div>
       <div class="card-body">
         <h4 class="mb-3 headr">Parameter Tarik Report</h4>
         <div class="mb-3">
           <div class="row">
             <div class="col-sm-2">
-            <label class="headr">Collector Grup</label>
+              <label class="headr">Collector Grup</label>
             </div>
             <div class="col-sm-2">
-            <select class="form-control headr" [(ngModel)]="colGroup"  >
-              <option label="--select something --" value=""></option>
-              <option *ngFor="let item of reportFilter" value="{{item.coveran}}">{{item.coveran}}</option>
-            </select>
+              <select class="form-control headr" [(ngModel)]="colGroup">
+                <option label="--select something --" value=""></option>
+                <option *ngFor="let item of reportFilter" value="{{item.coveran}}">{{item.coveran}}</option>
+              </select>
             </div>
           </div>
         </div>
 
         <div class="row headr">
-          <div class="col-sm-2" >
-          <label>Tanggal Aging</label>
+          <div class="col-sm-2">
+            <label>Tanggal Aging</label>
           </div>
-          <div class="col-sm-2" >
+          <div class="col-sm-2">
             <input type="date" class="form-control" [(ngModel)]="tgl"/>
 
           </div>
-          <div class="col-sm-2" >
+          <div class="col-sm-2">
             <button class="btn btn-outline-secondary" (click)="onFilter(colGroup, tgl)">
               Search
             </button>
@@ -36,63 +36,67 @@
         </div>
 
         <div class="card-content mt-4" *ngIf="!dataNull">
-          <button type="button" class="btn-close float-end" aria-label="Close" *ngIf="closeBtn == true" (click)="closed()"></button>
-          <table class="table table-striped" id="reportTable">
-            <thead>
-            <tr>
-              <th>No</th>
-              <th>Nama</th>
-              <th>Kontrak</th>
-              <th>Home Address</th>
-              <th>Postal Code</th>
-              <th>Collector Grup</th>
-              <th>Tanggal</th>
-              <th>Kelompok</th>
-            </tr>
-            </thead>
-            <tbody >
-            <tr *ngFor="let item of reports; let i = index">
-              <td>{{i+1}}</td>
-              <td>{{item.name}}</td>
-              <td>{{item.accountNumber}}</td>
-              <td>{{item.homeAddress}}</td>
-              <td>{{item.postalCode}}</td>
-              <td>{{item.coveran}}</td>
-              <td>{{item.agingDate | date: 'dd/MM/YYYY'}}</td>
-              <td>{{item.priority}}</td>
-            </tr>
-            </tbody>
-          </table>
+          <button type="button" class="btn-close float-end" aria-label="Close" *ngIf="closeBtn == true"
+                  (click)="closed()"></button>
+          <div class="table-responsive">
+            <table class="table table-striped" id="reportTable">
+              <thead>
+              <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Kontrak</th>
+                <th>Home Address</th>
+                <th>Postal Code</th>
+                <th>Collector Grup</th>
+                <th>Tanggal</th>
+                <th>Kelompok</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of reports; let i = index">
+                <td>{{i + 1}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.accountNumber}}</td>
+                <td>{{item.homeAddress}}</td>
+                <td>{{item.postalCode}}</td>
+                <td>{{item.coveran}}</td>
+                <td>{{item.agingDate | date: 'dd/MM/YYYY'}}</td>
+                <td>{{item.priority}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
           <div>
             <button class="btn btn-outline-secondary float-end  m-lg-3" (click)="SavePDF()">Print</button>
             <button class="btn btn-outline-secondary float-end  m-lg-3" (click)="exportexcel()">Export to Excel</button>
           </div>
         </div>
+        <div class="table-responsive">
+          <div *ngIf="dataNull">
+            <button type="button" class="btn-close float-end" aria-label="Close" *ngIf="closeBtn == true"
+                    (click)="closed()"></button>
+            <table class="table table-striped" id="reportTable">
+              <thead>
+              <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Kontrak</th>
+                <th>Home Address</th>
+                <th>Postal Code</th>
+                <th>Collector Grup</th>
+                <th>Tanggal</th>
+                <th>Kelompok</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td colspan="8" style="text-align: center"> Data Tidak Tersedia</td>
+              </tr>
+              </tbody>
+            </table>
 
-        <div *ngIf="dataNull">
-          <button type="button" class="btn-close float-end" aria-label="Close" *ngIf="closeBtn == true" (click)="closed()"></button>
-          <table class="table table-striped" id="reportTable">
-            <thead>
-            <tr>
-              <th>No</th>
-              <th>Nama</th>
-              <th>Kontrak</th>
-              <th>Home Address</th>
-              <th>Postal Code</th>
-              <th>Collector Grup</th>
-              <th>Tanggal</th>
-              <th>Kelompok</th>
-            </tr>
-            </thead>
-            <tbody >
-            <tr>
-              <td colspan="8" style="text-align: center"> Data Tidak Tersedia</td>
-            </tr>
-            </tbody>
-          </table>
-
+          </div>
         </div>
-
       </div>
     </div>
   </div>

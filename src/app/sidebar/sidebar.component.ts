@@ -8,6 +8,9 @@ import { Component } from '@angular/core';
 export class SidebarComponent {
 
   reportClick : boolean = false
+  isActiverep: boolean = false
+  isActiverus: boolean = true
+
   userClick: boolean = false
   status: boolean = false;
   clickEvent(){
@@ -17,10 +20,14 @@ export class SidebarComponent {
   userMet(){
     this.userClick = true
     this.reportClick = false
+    this.isActiverus = true
+    this.isActiverep = false
   }
 
   reportMet(){
     this.reportClick = true
     this.userClick = false
+    this.isActiverus = false
+    this.isActiverep = false
   }
 }

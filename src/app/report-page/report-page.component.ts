@@ -28,18 +28,19 @@ export class ReportPageComponent implements OnInit {
 
   constructor(
     private reportService: ReportService
-  ) {   }
+  ) {
+  }
 
   ngOnInit(): void {
     this.onAll()
   }
 
-  closed(){
+  closed() {
     this.closeBtn = false
     window.location.reload()
   }
 
-  onAll(): void{
+  onAll(): void {
     this.reportService.all().subscribe(
       (response: IReportWrapper) => {
         let tempData = response.data;
@@ -54,14 +55,13 @@ export class ReportPageComponent implements OnInit {
     this.closeBtn = true
     this.reportService.getFilter(cg, dt).subscribe(
       (response: IReportWrapper) => {
-        if (response.data.length > 0){
+        if (response.data.length > 0) {
           this.dataNull = false
-        }
-        else {
+        } else {
           this.dataNull = true
         }
-          this.tgl = ''
-          this.colGroup = ''
+        this.tgl = ''
+        this.colGroup = ''
         let tempData = response.data;
         this.reports = tempData
         this.reportss = tempData
@@ -72,13 +72,12 @@ export class ReportPageComponent implements OnInit {
   currentDate = new Date()
   cdv = formatDate(this.currentDate, 'yyyy-MM-dd hh:mm:ss', 'en-US');
 
-  fileName= 'ReportAging_'+this.cdv+'.xlsx';
+  fileName = 'ReportAging_' + this.cdv + '.xlsx';
 
-  exportexcel(): void
-  {
+  exportexcel(): void {
     /* pass here the table id */
     let element = document.getElementById('reportTable');
-    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
 
     /* generate workbook and add the worksheet */
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
@@ -94,6 +93,5 @@ export class ReportPageComponent implements OnInit {
     window.print()
 
   }
-
 
 }
