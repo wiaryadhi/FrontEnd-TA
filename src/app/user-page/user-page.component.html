@@ -9,54 +9,57 @@
                 </div>
             </div>
             <div class="card-body">
+              <div class="table-responsive">
                 <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>NIP</th>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Title</th>
-                            <th>Cover Area</th>
-                            <th>Phone</th>
-                            <th>MSIDN</th>
-                            <th>User Mobile</th>
-                            <th>User CMS </th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let u of users">
-                            <td>{{u.uniqId}}</td>
-                            <td>{{u.collectName}}</td>
-                            <td>{{u.type}}</td>
-                            <td>{{u.title}}</td>
-                            <td>{{u.coveran}}</td>
-                            <td>{{u.phoneNumber}}</td>
-                            <td>{{u.msisdn}}</td>
-                            <td align="center">
-                                <div *ngIf="u.mobile == true">
-                                    <button class="btn btn-success btn-sm" (click)="onMobileDisable(u.id)">Enable</button>
-                                </div>
-                                <div *ngIf="u.mobile == false" >
-                                    <button class="btn btn-danger btn-sm" (click)="onMobileEnable(u.id)">Disable</button>
-                                </div>
-                            </td>
-                            <td>
-                                <div *ngIf="u.cms == true">
-                                    <button class="btn btn-success btn-sm" (click)="onCmsDisable(u.id)">Enable</button>
-                                </div>
-                                <div *ngIf="u.cms == false">
-                                    <button class="btn btn-danger btn-sm" (click)="onCmsEnable(u.id)">Disable</button>
-                                </div>
-                            </td>
-                            <td>
-                                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#tambahModal" (click)="setUser(u)"><i class="bi bi-pencil-square"></i></button> &nbsp;
-                                <button class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#hapusModal" (click)="setUser(u)"><i class="bi bi-trash3-fill"></i></button>
-                            </td>
-                        </tr>
-                    </tbody>
+                  <thead>
+                      <tr>
+                          <th>NIP</th>
+                          <th>Name</th>
+                          <th>Type</th>
+                          <th>Title</th>
+                          <th>Cover Area</th>
+                          <th>Phone</th>
+                          <th>MSIDN</th>
+                          <th>User Mobile</th>
+                          <th>User CMS </th>
+                          <th>Action</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let u of users">
+                          <td>{{u.uniqId}}</td>
+                          <td>{{u.collectName}}</td>
+                          <td>{{u.type}}</td>
+                          <td>{{u.title}}</td>
+                          <td>{{u.coveran}}</td>
+                          <td>{{u.phoneNumber}}</td>
+                          <td>{{u.msisdn}}</td>
+                          <td align="center">
+                              <div *ngIf="u.mobile == true">
+                                  <button class="btn btn-success btn-sm" (click)="onMobileDisable(u.id)">Enable</button>
+                              </div>
+                              <div *ngIf="u.mobile == false" >
+                                  <button class="btn btn-danger btn-sm" (click)="onMobileEnable(u.id)">Disable</button>
+                              </div>
+                          </td>
+                          <td>
+                              <div *ngIf="u.cms == true">
+                                  <button class="btn btn-success btn-sm" (click)="onCmsDisable(u.id)">Enable</button>
+                              </div>
+                              <div *ngIf="u.cms == false">
+                                  <button class="btn btn-danger btn-sm" (click)="onCmsEnable(u.id)">Disable</button>
+                              </div>
+                          </td>
+                          <td>
+                              <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#tambahModal" (click)="setUser(u)"><i class="bi bi-pencil-square"></i></button> &nbsp;
+                              <button class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#hapusModal" (click)="setUser(u)"><i class="bi bi-trash3-fill"></i></button>
+                          </td>
+                      </tr>
+                  </tbody>
 
-                </table>
+              </table>
+              </div>
+                
             </div>
         </div>
 

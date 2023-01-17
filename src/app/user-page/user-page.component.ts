@@ -129,9 +129,14 @@ export class UserPageComponent implements OnInit {
       (response:IUsers)=>{
         this.user={} as IUsers;
         this.onAll()
-      }
-    )
-    alert("Data berhasil Diubah")
+        alert("Data berhasil Diubah")
+      }, 
+      ((error: any) => {
+        console.log(error);
+        alert(error.message)
+      })
+      )
+    
       
     }else{
       this.notif.title = "Nomor Handphone harus di isi";
@@ -203,6 +208,7 @@ export class UserPageComponent implements OnInit {
       (response:IUsers)=>{
         this.user={} as IUsers;
         this.onAll()
+        alert("Data berhasil dihapus")
       }
     )
   }
