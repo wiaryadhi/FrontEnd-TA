@@ -4,7 +4,7 @@ import {formatDate} from "@angular/common";
 import jsPDF from "jspdf";
 import {IReport, IReportWrapper} from "../interfaces/i-report";
 import {ReportService} from "../services/report.service";
-import * as moment from "moment";
+import {Subject} from "rxjs";
 
 @Component({
   selector: 'app-report-page',
@@ -13,6 +13,9 @@ import * as moment from "moment";
 })
 
 export class ReportPageComponent implements OnInit {
+
+  dtOptions: DataTables.Settings = {};
+  dtTrigger: Subject<any> = new Subject<any>();
 
   reports: Array<IReport> = [];
 

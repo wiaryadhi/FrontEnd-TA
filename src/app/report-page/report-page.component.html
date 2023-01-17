@@ -35,9 +35,10 @@
           </div>
         </div>
 
+        <div class="table-responsive widia">
         <div class="card-content mt-4" *ngIf="!dataNull">
           <button type="button" class="btn-close float-end" aria-label="Close" *ngIf="closeBtn == true" (click)="closed()"></button>
-          <table class="table table-striped" id="reportTable">
+          <table class="table table-striped" id="reportTable" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
             <thead>
             <tr>
               <th>No</th>
@@ -68,7 +69,7 @@
             <button class="btn btn-outline-secondary float-end  m-lg-3" (click)="exportexcel()">Export to Excel</button>
           </div>
         </div>
-
+        </div>
         <div *ngIf="dataNull">
           <button type="button" class="btn-close float-end" aria-label="Close" *ngIf="closeBtn == true" (click)="closed()"></button>
 
